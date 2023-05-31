@@ -5,11 +5,11 @@ import { FcGoogle } from 'react-icons/fc'
 import { BsApple } from 'react-icons/bs'
 import { TfiTwitterAlt } from 'react-icons/tfi'
 import { Link } from 'react-router-dom'
-// import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 export default function Login() {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [userData, setUserData] = useState()
 
@@ -76,7 +76,7 @@ export default function Login() {
             <div className={style.signUp}>
                 <div className={style.space}>
                     <span>Don't have an account? </span>
-                    {/* <span><Link to='/signup'>SignUp</Link></span> */}
+                    <span><Link to='/signup'>SignUp</Link></span>
                 </div>
             </div>
         </div>
