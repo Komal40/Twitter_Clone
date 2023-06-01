@@ -75,7 +75,7 @@ import {
                 <p>Shravan_Jaju</p>
               </div>
             </div>
-            <MoreHoriz />
+            <MoreHoriz  />
           </div>
         </div>
         <div>
