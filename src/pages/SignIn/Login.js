@@ -6,12 +6,14 @@ import { BsApple } from 'react-icons/bs'
 import { TfiTwitterAlt } from 'react-icons/tfi'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { DataArray } from '@mui/icons-material'
 
 export default function Login() {
 
     const navigate = useNavigate()
 
     const [userData, setUserData] = useState()
+    const [password, setPassword] = useState()
 
     // useEffect(() => {
     //     localStorage.setItem('value', userData)
@@ -21,9 +23,15 @@ export default function Login() {
     function getData(e) {
         e.preventDefault()
         const data = JSON.parse(localStorage.getItem('user'))
+
         console.log(data)
-        if (data && data.email==userData || data.phone==userData ) {
+        if (data && (data.email==userData || data.phone==userData) ) {
+            if(password == data.password){
             navigate('/home')
+            }
+            else{
+                alert('Wrong Password')
+            }
         }
         else {
             alert("Invalid Details")
@@ -67,6 +75,7 @@ export default function Login() {
                         type="password"
                         style={{ width: '25vw'}}
                         autoComplete="current-password"
+                        onChange={(e)=>setPassword(e.target.value)}
                     />
                     <button className={style.btn} onClick={getData}>
                         Next
