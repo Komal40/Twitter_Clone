@@ -20,14 +20,14 @@ export default function Login() {
 
     function getData(e){
         e.preventDefault()
-        const data = localStorage.getItem('value')
-        // console.log(data)
-        // if(data == userData){
-        //     navigate('/home')
-        // }
-        // else{
-        //     alert("fill the form correctly")
-        // }
+        const data = localStorage.getItem('user')
+        console.log(data)
+        if(data== userData){
+            navigate('/home')
+        }
+        else{
+            alert("fill the form correctly")
+        }
     }
 
     return (
@@ -56,7 +56,7 @@ export default function Login() {
 
                 <form >
                     <TextField id="outlined-basic"
-                        label="Phone, userName or email"
+                        label="Phone, UserName or Email"
                         variant="outlined"
                         style={{ width: '25vw', margin: '30px 0px' }}
                         onChange={(e)=>setUserData(e.target.value)}
