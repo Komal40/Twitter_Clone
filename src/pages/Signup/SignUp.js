@@ -181,7 +181,7 @@ const SignupPage = () => {
         <a href="https://example.com/privacy">Privacy Policy</a>, including Cookie Use.
       </p>
       <p>
-        Have an account already? <a href="/login">Log in</a>
+        Have an account already? <a href="/">Log in</a>
       </p>
     </div>
   );

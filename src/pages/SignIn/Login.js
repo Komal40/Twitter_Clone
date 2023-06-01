@@ -5,7 +5,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { BsApple } from 'react-icons/bs'
 import { TfiTwitterAlt } from 'react-icons/tfi'
 import { Link } from 'react-router-dom'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
 
@@ -13,20 +13,20 @@ export default function Login() {
 
     const [userData, setUserData] = useState()
 
-    useEffect(()=>{
-        localStorage.setItem('value', userData)
-    },[userData])
+    // useEffect(() => {
+    //     localStorage.setItem('value', userData)
+    // }, [userData])
 
 
-    function getData(e){
+    function getData(e) {
         e.preventDefault()
-        const data = localStorage.getItem('user')
+        const data = JSON.parse(localStorage.getItem('user'))
         console.log(data)
-        if(data== userData){
+        if (data && data.email==userData || data.phone==userData ) {
             navigate('/home')
         }
-        else{
-            alert("fill the form correctly")
+        else {
+            alert("Invalid Details")
         }
     }
 
@@ -40,7 +40,7 @@ export default function Login() {
                     Sign In To Twitter
                 </Typography>
 
-                <div onClick={()=>alert('clicked')} className={style.sign_container}>
+                <div onClick={() => alert('clicked')} className={style.sign_container}>
                     <div className={style.google}>
                         <span className={style.icon}><FcGoogle /></span>
                         <span>Sign in with Google</span>
@@ -59,7 +59,14 @@ export default function Login() {
                         label="Phone, UserName or Email"
                         variant="outlined"
                         style={{ width: '25vw', margin: '30px 0px' }}
-                        onChange={(e)=>setUserData(e.target.value)}
+                        onChange={(e) => setUserData(e.target.value)}
+                    />
+                    <TextField
+                        id="outlined-password-input"
+                        label="Password"
+                        type="password"
+                        style={{ width: '25vw'}}
+                        autoComplete="current-password"
                     />
                     <button className={style.btn} onClick={getData}>
                         Next

@@ -15,9 +15,16 @@ import {
   import Home from "../Home/Home" ;
   import "./Sidebar.css";
   import './../new.css'
+  import { useNavigate } from "react-router-dom";
   
   function Sidebar() {
     const [active, setActive] = useState("Home");
+    const navigate= useNavigate()
+
+    function getLogOut(){
+        navigate('/')
+    }
+
     return (
       <div className="appContainer">
         <div className="sideBar">
@@ -75,7 +82,7 @@ import {
                 <p>Shravan_Jaju</p>
               </div>
             </div>
-            <MoreHoriz />
+            <MoreHoriz onClick={getLogOut}/>
           </div>
         </div>
         <div>
