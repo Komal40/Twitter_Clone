@@ -8,8 +8,8 @@ import {
     SearchOutlined,
     SentimentSatisfiedAltOutlined,
   } from "@mui/icons-material";
-  import { Avatar } from "@mui/material";
-  import React from "react";
+  import { Avatar, useScrollTrigger } from "@mui/material";
+  import React, { useState } from "react";
   import "./Home.css";
   import feeds from "../Data/feed.json"
   import trends from "../Data/trend.json";
@@ -18,6 +18,15 @@ import {
   import './../new.css'
   
   function Home() {
+    const [name,setName]=useState('')
+    const [tweets,setTweets]=useState([])
+    function setTweet(){
+      setTweets([name,...tweets])
+    }
+    function handleInput(event){
+      setName(event.target.value)
+    }
+
     return (
       <div className="home">
         <div>
@@ -33,7 +42,7 @@ import {
                   src="https://st.depositphotos.com/1011643/4430/i/950/depositphotos_44309759-stock-photo-young-indian-man-outdoors.jpg"
                 />
                 <div style={{ width: "80%", height: "30%" }}>
-                  <textarea
+                  <textarea onChange={handleInput} value={name} 
                     className="headerCreateInput"
                     placeholder="What's happening?"
                   />
@@ -47,13 +56,40 @@ import {
                       <LocationOnOutlined />
                     </div>
                     <div className="headerCreateButton">
-                      <button>Tweet</button>
+                      <button onClick={setTweet}>Tweet</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div className="feed">
+          {tweets.map((ele)=>(
+                
+                <>
+                {/* <h3>{ele}</h3> */}
+                  
+              <Feed
+                avatarurl={feeds.feed[3].avatarurl}
+                name={feeds.feed[3].name}
+                time={feeds.feed[3].time}
+                text={<h3>{ele}</h3>}
+                image={feeds.feed[4].image}
+                view={feeds.feed[3].view}
+                comment={feeds.feed[3].comment}
+                retweet={feeds.feed[3].retweet}
+                like={feeds.feed[3].like}
+                verified={feeds.feed[3].verified}
+              />
+             
+             </>
+                
+  
+              ))}
+         
+          </div>
+
           <div className="feed">
             {feeds.feed.map((item) => (
               <Feed
