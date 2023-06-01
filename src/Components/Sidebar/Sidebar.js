@@ -19,10 +19,16 @@ import {
   
   function Sidebar() {
     const [active, setActive] = useState("Home");
-    const navigate= useNavigate()
+    const [logOut, setLogOut] = useState(false);
+
+     const navigate= useNavigate()
 
     function getLogOut(){
         navigate('/')
+    }
+
+    function toggleLogOut(){
+      setLogOut((prevState)=>!prevState)
     }
 
     return (
@@ -82,11 +88,22 @@ import {
                 <p>Shravan_Jaju</p>
               </div>
             </div>
-            <MoreHoriz onClick={getLogOut}/>
+            <MoreHoriz onClick={toggleLogOut}
+              className="log_out"
+            />
           </div>
         </div>
         <div>
           {active === "Home" ? <Home /> : null}
+        </div>
+        <div className="logoutPopup" style={{display : logOut ? "block": "none"}}>
+         {logOut && (
+          <div >
+          <p>Are you sure you want to logout ?</p>
+            <button onClick={getLogOut}>Log Out</button>
+            <button onClick={()=>setLogOut(false)}>Cancel</button>
+          </div>
+         )}
         </div>
       </div>
     );
