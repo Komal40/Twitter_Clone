@@ -23,8 +23,12 @@ import {
 
   
     function setTweet(){
+      if(name==""){
+        alert("Please Enter Something")
+      }
+      else{
       setTweets([name,...tweets])
-    }
+    }}
     function handleInput(event){
       setName(event.target.value)
     }
