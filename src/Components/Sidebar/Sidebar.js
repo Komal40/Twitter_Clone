@@ -88,9 +88,12 @@ import {
                 <p>Shravan_Jaju</p>
               </div>
             </div>
+
             <MoreHoriz onClick={toggleLogOut}
               className="log_out"
             />
+
+
           </div>
         </div>
         <div>

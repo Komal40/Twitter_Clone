@@ -175,6 +175,7 @@
     cursor: pointer;
     transition: 0.5s;
   }
+
   
   .feedItemFooter > .row-between > .feedItemIcons > .MuiSvgIcon-root {
     width: 30px;
@@ -231,11 +232,13 @@
   
   .feedItemFooter > .row-between > .Like:hover > .MuiSvgIcon-root {
     color: #f91880;
-    background-color: lightgrey;
+    background-color: lightgoldenrodyellow;
+
   }
   
   .feedItemFooter > .row-between > .Like:hover > p {
     color: #f91880;
+    
   }
   
   .search {
