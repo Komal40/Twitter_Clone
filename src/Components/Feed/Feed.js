@@ -9,21 +9,26 @@ import {
   } from "@mui/icons-material";
   import { Avatar } from "@mui/material";
   import React, { useState } from "react";
+  import FavoriteIcon from '@mui/icons-material/Favorite';
   
   function Feed(props) {
 
-    const [isLike,setIsLike]=useState(false)
+    const [isLike,setIsLike]=useState(true)
   
     const [like,setLike]=useState(5000)
+
     function handleLike(){
       if(like==5000){ 
       setLike(like+1)
-      setIsLike(true)
+      setIsLike(false)
+      
+    } 
     }
-      else {
+    function handelDislike(){
+      
         setLike(like-1)
-        setIsLike(false)
-      }
+        setIsLike(true)
+      
     }
     return (
 
@@ -78,7 +83,8 @@ import {
               <p>{props.retweet}</p>
             </div>
             <div className="feedItemIcons row-nospace Like">
-              <FavoriteBorderOutlined  onClick={handleLike} />
+              {isLike? <FavoriteBorderOutlined  onClick={handleLike} />: <FavoriteIcon onClick={handelDislike} />}
+              
               <p>{like}</p>
             </div>
             <div className="feedItemIcons row-nospace Share">
