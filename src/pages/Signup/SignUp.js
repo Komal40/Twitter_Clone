@@ -2,9 +2,24 @@ import React, { useState } from 'react';
 import styles from './SignUp.module.css';
 import { Mail, Apple,Twitter } from '@mui/icons-material';
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 const SignupPage = () => {
-    const [name, setName] = useState('');
+  const navigate=useNavigate()
+
+  let flag=false
+
+  // function navigateLogin(){
+  //   if(flag!=false){
+  //   navigate("/")}
+  //   else{
+  //     navigate('/signup')
+  //   }
+  // } 
+
+     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [dob, setDob] = useState('');
@@ -47,7 +62,8 @@ const SignupPage = () => {
       alert('This phone number is already registered. Please use a different phone number.');
       return;
     }
-  
+    
+
       const user = {
         name,
         email,
@@ -58,14 +74,17 @@ const SignupPage = () => {
   
       // Store user data in local storage
       localStorage.setItem('user', JSON.stringify(user));;
+      flag=true
   
-      
       setName('');
       setEmail('');
       setPhone('');
       setDob('');
       setPassword('');
+      
       alert('Form submitted successfully!');
+      navigate("/")
+      
     };
     const checkEmailExists = (email) => {
       
@@ -128,7 +147,7 @@ const SignupPage = () => {
             required
           />
           
-          <Button type="submit" variant="contained" disableElevation>
+          <Button type="submit" variant="contained" disableElevation >
           Sign Up
         </Button>
         </form>
@@ -182,7 +201,9 @@ const SignupPage = () => {
         <a href="https://example.com/privacy">Privacy Policy</a>, including Cookie Use.
       </p>
       <p>
-        Have an account already? <a href="/">Log in</a>
+
+        Have an account already? <Link to ="/">Log in</Link>
+
       </p>
      
     </div>

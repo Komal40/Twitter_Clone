@@ -8,10 +8,25 @@ import {
     VerifiedRounded,
   } from "@mui/icons-material";
   import { Avatar } from "@mui/material";
-  import React from "react";
+  import React, { useState } from "react";
   
   function Feed(props) {
+
+    const [isLike,setIsLike]=useState(false)
+  
+    const [like,setLike]=useState(5000)
+    function handleLike(){
+      if(like==5000){ 
+      setLike(like+1)
+      setIsLike(true)
+    }
+      else {
+        setLike(like-1)
+        setIsLike(false)
+      }
+    }
     return (
+
       <div className="feedItem w-100">
         <div className="row-between">
           <div className="row-nospace">
@@ -63,8 +78,8 @@ import {
               <p>{props.retweet}</p>
             </div>
             <div className="feedItemIcons row-nospace Like">
-              <FavoriteBorderOutlined />
-              <p>{props.like}</p>
+              <FavoriteBorderOutlined  onClick={handleLike} />
+              <p>{like}</p>
             </div>
             <div className="feedItemIcons row-nospace Share">
               <IosShareOutlined />
