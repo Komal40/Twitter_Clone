@@ -24,7 +24,7 @@ export default function Login() {
         e.preventDefault()
         const data = JSON.parse(localStorage.getItem('user'))
 
-        console.log(data)
+        // console.log(data)
         if (data && (data.email==userData || data.phone==userData) ) {
             if(password == data.password){
             navigate('/home')
@@ -55,7 +55,7 @@ export default function Login() {
                     </div>
                 </div>
 
-                <div className={style.sign_container}>
+                <div onClick={() => alert('clicked')} className={style.sign_container}>
                     <div className={style.google}>
                         <span className={style.icon}><BsApple /></span>
                         <span style={{ fontSize: '18px' }}>Sign in with Apple</span>

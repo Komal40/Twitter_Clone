@@ -9,7 +9,7 @@ import {
     SentimentSatisfiedAltOutlined,
   } from "@mui/icons-material";
   import { Avatar, useScrollTrigger } from "@mui/material";
-  import React, { useState } from "react";
+  import React, { useState, useEffect } from "react";
   import "./Home.css";
   import feeds from "../Data/feed.json"
   import trends from "../Data/trend.json";
@@ -20,12 +20,16 @@ import {
   function Home() {
     const [name,setName]=useState('')
     const [tweets,setTweets]=useState([])
+
+  
     function setTweet(){
       setTweets([name,...tweets])
     }
     function handleInput(event){
       setName(event.target.value)
     }
+
+  
 
     return (
       <div className="home">
@@ -73,7 +77,7 @@ import {
               <Feed
                 avatarurl={feeds.feed[3].avatarurl}
                 name={feeds.feed[3].name}
-                time={feeds.feed[3].time}
+                time={feeds.feed[0].time}
                 text={<h3>{ele}</h3>}
                 image={feeds.feed[4].image}
                 view={feeds.feed[3].view}

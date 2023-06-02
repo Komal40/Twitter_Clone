@@ -195,7 +195,8 @@ const SignupPage = () => {
           </Button>
         </a>
       </div>
-      <p>
+  
+      <p >
         By signing up, you agree to the <a href="https://example.com/terms">Terms of Service</a> and{' '}
         <a href="https://example.com/privacy">Privacy Policy</a>, including Cookie Use.
       </p>
@@ -204,6 +205,7 @@ const SignupPage = () => {
         Have an account already? <Link to ="/">Log in</Link>
 
       </p>
+     
     </div>
   );
 };
