@@ -67,10 +67,7 @@ import {
               Bookmarks
             </li>
             <li
-              className="sideBarListItem"
-              onClick={() => setActive("Profile")}
-              style={{ fontWeight: active === "Profile" ? "bolder" : "" }}
-            >
+              className="sideBarListItem">
               <PersonOutlineOutlined className="sidebarIcon" />
               Profile
             </li>

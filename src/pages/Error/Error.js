@@ -6,7 +6,7 @@ export default function Error() {
         navigate("/home")
     }
   return (
-    <div> <h1>No such page sry!! click on Back to home button</h1>
+    <div> <h1>No such page!! click on Back to home button</h1>
 <button onClick={handleBa} >Back To home</button>
 
     </div>
