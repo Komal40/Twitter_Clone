@@ -11,3 +11,5 @@ You can create a new account by clicking on the "Sign up" button on the homepage
 From the dashboard, you can create new tweets, follow other users, and view your timeline to see the tweets posted by users you follow. You can also view your profile to see your own tweets.
 
 Overall, this Twitter clone provides a basic platform for users to engage with each other in a similar way to the original Twitter. Please note that this project is not intended for production use and is only meant for learning purposes.
+
+Deployment Link - https://twitter-clone-komal40.vercel.app/
